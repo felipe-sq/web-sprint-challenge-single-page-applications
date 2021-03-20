@@ -5,8 +5,10 @@ import { Route } from 'react-router-dom'
 const App = () => {
   return (
     <>
-      <h1>Lambda Eats</h1>
+      <div className="main-card">
+      <h1 className="header-card">Lambda Eats</h1>
       <p>Get ready to have your tastbuds tantalized!</p>
+      </div>
     </>
   );
 };
