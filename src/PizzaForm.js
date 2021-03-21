@@ -1,7 +1,14 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 
-export default function Form() {
+export default function Form(props) {
+    const { 
+        values, 
+        submit, 
+        change, 
+        errors, 
+    } = props
+
     const history = useHistory()
 
     const routeToHome = () => {
@@ -15,9 +22,13 @@ export default function Form() {
                 <h2>Welcome to the Pizza Form!</h2>
                 <p>Choose your options below to build your ultimate pizza.</p>
                 
+                <div className="errors">
+                    {/* <div>{errors.name}</div> */}
+                </div>
+
                 <div className="form-card">
                     <section className="form-card-heading">Enter a Name For Your Order</section>
-                    <label><input type="text" size="40" name="order-name" placeholder="Enter Your Order Name (i.e. 'Bob's Order')"/></label>
+                    <label><input value="name" type="text" name="name" size="40" placeholder="Enter Your Order Name (i.e. 'Bob's Order')"/></label>
                 </div>
 
                 <div className="form-card">
@@ -57,40 +68,25 @@ export default function Form() {
                     <section className="form-card-heading">Choose Your Toppings:</section>
                     <form className="form-container checkboxes">
                         <label>Pepperoni
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="pepperoni"/>
                         </label>
                         <label>Mushrooms
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="mushrooms" />
                         </label>
                         <label>Olives
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="olives" />
                         </label>
                         <label>Sausage
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="sausage" />
                         </label>
                         <label>Anchovies
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="anchovies" />
                         </label>
                         <label>Canadian Bacon
-                            <input type="checkbox"/>
-                        </label>
-                        <label>Peppers
-                            <input type="checkbox"/>
-                        </label>            
+                            <input type="checkbox" name="canadian-bacon" />
+                        </label>           
                         <label>Pineapple
-                            <input type="checkbox"/>
-                        </label>
-                        <label>Artichoke Hearts
-                            <input type="checkbox"/>
-                        </label>
-                        <label>Jalapenos
-                            <input type="checkbox"/>
-                        </label>
-                        <label>Tomato Slices
-                            <input type="checkbox"/>
-                        </label>
-                        <label>Purple Onion
-                            <input type="checkbox"/>
+                            <input type="checkbox" name="pineapple" />
                         </label>
                     </form>
                 </div>
@@ -119,7 +115,7 @@ export default function Form() {
 
                 <div className="form-card">
                     <section className="form-card-heading">Special Instructions:</section>
-                    <label><input type="text" size="100" placeholder="Anything else you'd like to add? Perhaps special instructions like extra sauce or extra cheese?"/></label>
+                    <label><input type="text" size="100" name="special-instructions" placeholder="Anything else you'd like to add? Perhaps special instructions like extra sauce or extra cheese?"/></label>
                 </div>
 
                 <div className="form-card">

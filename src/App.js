@@ -1,16 +1,39 @@
-import React from "react";
-import { Link, NavLink, Route, useHistory } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { Link, Route, useHistory } from 'react-router-dom'
+import * as yup from 'yup'
+import axios from 'axios'
+
+import { formSchema } from './formSchema'
 
 import Form from './PizzaForm'
 import Success from './Success'
 
+const initialFormValues = {
+  ordername: '',
+}
+const initialFormErrors = {
+  ordername: '',
+}
+const initialOrderItems = []
+
 const App = () => {
+
+  const [orderItems, setOrderItems] = useState(initialOrderItems)
+  const [formValues, setFormValues] = useState(initialFormValues)
+  const [formErrors, setFormErrors] = useState(initialFormErrors)
+
   const history = useHistory()
 
   const routeToHome = () => {
       history.push('/')
   }
 
+  const postNewOrderItem = newOrderItem => {
+    axios.post('', newOrderItem)
+    .then((data) => {
+      console.log(data)
+    })
+  }
   return (
     <>
       <div className="main-card">
@@ -24,8 +47,12 @@ const App = () => {
           <button id='pizza-form' className="pizza-button">Pizza?</button>
         </Link>
         </div>
-      <h3>Get ready to have your tastbuds tantalized! Choose from any of the options below to get started.</h3>
+      <h3>Get ready to have your tastbuds tantalized! Choose from from the options below (if available) or select the featured cuisine button up top.</h3>
       </div>
+
+      <Form 
+        errors={formErrors}  
+      />
 
       <div>
         <Route exact path='/'>
