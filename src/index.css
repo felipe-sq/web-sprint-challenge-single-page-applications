@@ -55,7 +55,6 @@ code {
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
   padding: 1rem;
-  /* cursor: pointer; */
   position: relative;
   margin: 1rem auto;
 }
@@ -65,11 +64,6 @@ code {
   align-items: baseline;
   flex-direction: column;
   padding: 0 14px 0 14px;
-
-    /* &.submit {
-      flex: 2;
-      align-items: flex-start;
-    } */
 }
 .form-container.inputs {
   margin: 2px 2px 2px;
@@ -80,7 +74,7 @@ code {
   flex: 1;
 }
 .header-card h1 {
-  color: rgb(224, 43, 43);
+  color: rgb(247, 12, 12);
   font-size: 4em;
   text-shadow: 2px 2px rgb(90, 36, 36), 4px 4px rgb(202, 186, 39), rgb(20, 9, 11) 1px 0 22px;
 }
