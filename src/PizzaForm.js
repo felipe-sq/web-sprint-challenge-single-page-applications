@@ -89,6 +89,55 @@ export default function Form() {
                     </form>
                 </div>
 
+                <div className="form-card">
+                    <section className="form-card-heading">Choose Extra Options:</section>
+                    <form className="form-container">
+                        <label className="switch">
+                            <input type="checkbox"/>
+                            <span className="slider"/>
+                        </label>Gluten-Free
+                    </form>
+                    <form className="form-container">
+                        <label className="switch">
+                            <input type="checkbox"/>
+                            <span className="slider"/>
+                        </label>Dairy-Free
+                    </form>
+                    <form className="form-container">
+                        <label className="switch">
+                            <input type="checkbox"/>
+                            <span className="slider"/>
+                        </label>Keto Crust
+                    </form>
+                </div>
+
+                <div className="form-card">
+                    <section className="form-card-heading">Special Instructions:</section>
+                    <label><input type="text" size="100" placeholder="Anything else you'd like to add? Perhaps special instructions like extra sauce or extra cheese?"/></label>
+                </div>
+
+                <div className="form-card">
+                    <section className="form-card-heading">Add To Cart!</section>
+                    <form className="form-container inputs">
+                        <label>Select The Amount You Want To Add: 
+                            <select>
+                                <option>Choose From This List! </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </label>
+                    </form>
+                    <button className="add-order-button">Add to Cart</button>
+                </div>
+
             </div>
         </div>
     );
