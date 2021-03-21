@@ -10,10 +10,16 @@ export default function Form() {
 
     return (
         <div>
-            <button className='home-button' onClick={routeToHome}>Home</button>
+            {/* <button className='home-button' onClick={routeToHome}>Home</button> */}
             <div className="form-card">
                 <h2>Welcome to the Pizza Form!</h2>
                 <p>Choose your options below to build your ultimate pizza.</p>
+                
+                <div className="form-card">
+                    <section className="form-card-heading">Enter a Name For Your Order</section>
+                    <label><input type="text" size="40" name="order-name" placeholder="Enter Your Order Name (i.e. 'Bob's Order')"/></label>
+                </div>
+
                 <div className="form-card">
                     <section className="form-card-heading">Choose Your Size:</section>
                     <form className="form-container inputs">

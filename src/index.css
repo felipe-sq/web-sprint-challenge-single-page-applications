@@ -45,6 +45,9 @@ code {
   margin: 1rem auto;
 }
 
+.form-card-success {
+
+}
 .header-card {
   background-image: url('Pizza.jpg');
   background-color: #fff;
@@ -131,6 +134,7 @@ input:checked + .slider:before {
   font-size: 4em;
   text-shadow: 2px 2px rgb(90, 36, 36), 4px 4px rgb(202, 186, 39), rgb(20, 9, 11) 1px 0 22px;
 }
+
 .home-button {
   margin: 0 0 0 20px;
   padding: 10px 10px;
@@ -138,6 +142,15 @@ input:checked + .slider:before {
   border: 2px solid red;
   border-radius: 10px;
   color: rgb(248, 44, 44);
+}
+
+.nav-button {
+  margin: 0 0 0 20px;
+  padding: 10px 10px;
+  background-color: rgb(243, 235, 235);
+  border: 2px solid rgb(182, 3, 3);
+  border-radius: 10px;
+  color: rgb(182, 3, 3);
 }
 
 .pizza-button {

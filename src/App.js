@@ -1,14 +1,23 @@
 import React from "react";
-import { Link, Route } from 'react-router-dom'
+import { Link, NavLink, Route, useHistory } from 'react-router-dom'
 
 import Form from './PizzaForm'
 import Success from './Success'
 
 const App = () => {
+  const history = useHistory()
+
+  const routeToHome = () => {
+      history.push('/')
+  }
 
   return (
     <>
       <div className="main-card">
+      <button className='home-button' onClick={routeToHome}>Home</button>
+      <button className='nav-button'>About</button>
+      <button className='nav-button'>Specials</button>
+      <button className='nav-button'>Get Help</button>
         <div className="header-card">
         <h1>Lambda Eats</h1>
         <Link to={'/PizzaForm/'}>
