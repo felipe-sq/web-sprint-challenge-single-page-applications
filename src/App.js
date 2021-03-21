@@ -106,6 +106,13 @@ const App = () => {
       <Success 
         values={formValues}
       />
+      {
+        orderItems.map(order => {
+          return (
+            <Success key={order.id} details={order} />
+          )
+        })
+      }
 
       <div>
         <Route exact path='/'>
@@ -115,9 +122,9 @@ const App = () => {
         <Route exact path='/PizzaForm/' />
           {/* <Form form='pizza-form'/> */}
         {/* </Route> */}
-        {/* <Route exact path='/Success/'>
+        <Route exact path='/Success/:id'>
           <Success />
-        </Route> */}
+        </Route>
 
       </div>
     </>
