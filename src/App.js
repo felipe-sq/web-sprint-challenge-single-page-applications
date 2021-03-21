@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, Route, useHistory } from 'react-router-dom'
-import * as yup from 'yup'
+ import * as yup from 'yup'
 import axios from 'axios'
 
 import { formSchema } from './formSchema'
@@ -43,7 +43,11 @@ const App = () => {
   const history = useHistory()
 
   const routeToHome = () => {
-      history.push('/')
+    history.push('/')
+  }
+
+  const routeToSuccess = () => {
+    history.push('./Success')
   }
 
   const postNewOrderItem = newOrderItem => {
@@ -64,7 +68,7 @@ const App = () => {
     setFormValues({...formValues, [name]: value})
   }
 
-  const formSubmit = () => {
+  const formSubmit = (e) => {
     const newOrderItem = {
       name: formValues.name.trim(),
       size: formValues.size,
@@ -95,24 +99,17 @@ const App = () => {
       <h3>Get ready to have your tastbuds tantalized! Choose from from the options below to build your pizza order.</h3>
       </div>
 
-      <Form 
-        values={formValues}
-        change={inputChange}
-        submit={formSubmit}
-        disabled={disabled}
-        errors={formErrors}  
-      />
+        <Form 
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+          disabled={disabled}
+          errors={formErrors}  
+        />
 
-      <Success 
+      {/* <Success 
         values={formValues}
-      />
-      {
-        orderItems.map(order => {
-          return (
-            <Success key={order.id} details={order} />
-          )
-        })
-      }
+      /> */}
 
       <div>
         <Route exact path='/'>
@@ -122,7 +119,7 @@ const App = () => {
         <Route exact path='/PizzaForm/' />
           {/* <Form form='pizza-form'/> */}
         {/* </Route> */}
-        <Route exact path='/Success/:id'>
+        <Route exact path='/Success/'>
           <Success />
         </Route>
 

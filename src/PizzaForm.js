@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, useHistory } from 'react-router-dom'
 
 export default function Form(props) {
     const { 
@@ -19,6 +20,12 @@ export default function Form(props) {
 
         const val = type === 'checkbox' ? checked : value 
         change(name, val)
+    }
+
+    const history = useHistory()
+
+    const routeToSuccess = () => {
+      history.push('/Successs')
     }
 
     return (
@@ -122,7 +129,10 @@ export default function Form(props) {
                 </div>
 
                 <div className="form-card">
-                    <button className="add-order-button" disabled={disabled}>Add to Cart</button>
+                    {/* code for success page added for stretch goal */}
+                    {/* <Link to="/Success"> */}
+                        <button className="add-order-button" disabled={disabled}>Add to Cart</button>
+                    {/* </Link> */}
                 </div>
 
             </div>
