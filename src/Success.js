@@ -1,12 +1,14 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 
 export default function Success() {
-    const history = useHistory()
+    // added useHistory effect for home button but it is currently not in use as the home button has been added to App.js
+    // const history = useHistory()
 
-    const routeToHome = () => {
-        history.push('/')
-    }
+    // const routeToHome = () => {
+    //     history.push('/')
+    // }
+    
     return (
         <>
             {/* <button className='home-button' onClick={routeToHome}>Home</button> */}

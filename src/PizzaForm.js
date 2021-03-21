@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 
 export default function Form(props) {
     const { 
@@ -9,44 +8,61 @@ export default function Form(props) {
         errors, 
     } = props
 
-    const history = useHistory()
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
 
-    const routeToHome = () => {
-        history.push('/')
+    const onChange = evt => {
+        const { name, value, checked, type } = evt.target
+
+        const val = type === 'checkbox' ? checked : value 
+        change(name, val)
     }
 
     return (
         <div>
-            {/* <button className='home-button' onClick={routeToHome}>Home</button> */}
-            <div className="form-card">
+            <div className="form-card" onSubmit={onSubmit}>
                 <h2>Welcome to the Pizza Form!</h2>
                 <p>Choose your options below to build your ultimate pizza.</p>
                 
                 <div className="errors">
-                    {/* <div>{errors.name}</div> */}
+                    <div>{errors.name}</div>
                 </div>
 
                 <div className="form-card">
                     <section className="form-card-heading">Enter a Name For Your Order</section>
-                    <label><input value="name" type="text" name="name" size="40" placeholder="Enter Your Order Name (i.e. 'Bob's Order')"/></label>
+                    <label>
+                        <input 
+                            value={values.name} 
+                            onChange={onChange}
+                            type="text" 
+                            name="name" 
+                            size="40" 
+                            placeholder="Enter Your Order Name (i.e. 'Bob's Order')"
+                        />
+                    </label>
                 </div>
 
                 <div className="form-card">
                     <section className="form-card-heading">Choose Your Size:</section>
                     <form className="form-container inputs">
                         <label>Size Options
-                            <select>
-                                <option>Select Your Size! </option>
-                                <option>Small</option>
-                                <option>Medium</option>
-                                <option>Large</option>
-                                <option>Extra Large</option>
+                            <select
+                                onChange={onChange}
+                                value={values.size}
+                                name='size'
+                            >
+                                <option value=''>- Select Your Size! -</option>
+                                <option value='small'>Small</option>
+                                <option value='medium'>Medium</option>
+                                <option value='large'>Large</option>
                             </select>
                         </label>
                     </form>
                 </div>
 
-                <div className="form-card">
+                {/* <div className="form-card">
                     <section className="form-card-heading">Choose Your Sauce:</section>
                     <form className="form-container inputs">
                         <label>Marinara
@@ -62,31 +78,28 @@ export default function Form(props) {
                             <input type="radio"/>
                         </label>
                     </form>
-                </div>
+                </div> */}
                 
                 <div className="form-card">
                     <section className="form-card-heading">Choose Your Toppings:</section>
                     <form className="form-container checkboxes">
                         <label>Pepperoni
-                            <input type="checkbox" name="pepperoni"/>
+                            <input type="checkbox" name="pepperoni" onChange={onChange} checked={values.pepperoni}/>
                         </label>
                         <label>Mushrooms
-                            <input type="checkbox" name="mushrooms" />
+                            <input type="checkbox" name="mushrooms" onChange={onChange} checked={values.mushrooms}/>
                         </label>
                         <label>Olives
-                            <input type="checkbox" name="olives" />
+                            <input type="checkbox" name="olives" onChange={onChange} checked={values.olives}/>
                         </label>
                         <label>Sausage
-                            <input type="checkbox" name="sausage" />
-                        </label>
-                        <label>Anchovies
-                            <input type="checkbox" name="anchovies" />
+                            <input type="checkbox" name="sausage" onChange={onChange} checked={values.sausage}/>
                         </label>
                         <label>Canadian Bacon
-                            <input type="checkbox" name="canadian-bacon" />
+                            <input type="checkbox" name="canadian_bacon" onChange={onChange} checked={values.canadian_bacon}/>
                         </label>           
                         <label>Pineapple
-                            <input type="checkbox" name="pineapple" />
+                            <input type="checkbox" name="pineapple" onChange={onChange} checked={values.pineapple}/>
                         </label>
                     </form>
                 </div>
@@ -115,14 +128,25 @@ export default function Form(props) {
 
                 <div className="form-card">
                     <section className="form-card-heading">Special Instructions:</section>
-                    <label><input type="text" size="100" name="special-instructions" placeholder="Anything else you'd like to add? Perhaps special instructions like extra sauce or extra cheese?"/></label>
+                    <label>
+                        <input 
+                        onChange={onChange}
+                        value={values.instructions} 
+                        type="text" 
+                        size="100" 
+                        name="instructions"
+                        placeholder="Anything else you'd like to add? Perhaps special instructions like extra sauce or extra cheese?"/></label>
                 </div>
 
                 <div className="form-card">
-                    <section className="form-card-heading">Add To Cart!</section>
+                    {/* <section className="form-card-heading">Add To Cart!</section>
                     <form className="form-container inputs">
                         <label>Select The Amount You Want To Add: 
-                            <select>
+                            <select
+                                onChange={onChange}
+                                value={values.amount}
+                                name='amount'
+                            >
                                 <option>Choose From This List! </option>
                                 <option>1</option>
                                 <option>2</option>
@@ -136,8 +160,8 @@ export default function Form(props) {
                                 <option>10</option>
                             </select>
                         </label>
-                    </form>
-                    <button className="add-order-button">Add to Cart</button>
+                    </form> */}
+                    <button className="add-order-button" onSubmit={onSubmit}>Add to Cart</button>
                 </div>
 
             </div>
