@@ -14,7 +14,29 @@ code {
 }
 
 .main-card {
+  text-align: center;
   background-color: rgb(238, 231, 231);
+  border: 0;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  position: relative;
+  margin: 1rem auto;
+}
+
+.form-card {
+  background-color: rgb(238, 231, 231);
+  border: 0;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  padding: 1rem;
+  position: relative;
+  margin: 1rem auto;
+}
+
+.form-card-heading {
+  background-color: tomato;
+  color: #f5f3f3;
   border: 0;
   box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
     0 2px 4px rgba(0, 0, 0, 0.24);
@@ -38,14 +60,32 @@ code {
   margin: 1rem auto;
 }
 
+.form-container {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+  padding: 0 14px 0 14px;
+
+    /* &.submit {
+      flex: 2;
+      align-items: flex-start;
+    } */
+}
+.form-container.inputs {
+  margin: 2px 2px 2px;
+  flex: 2;
+}
+.form-container.checkboxes {
+  margin: 2px 2px 2px;
+  flex: 1;
+}
 .header-card h1 {
-  color: rgb(240, 18, 18);
+  color: rgb(224, 43, 43);
   font-size: 4em;
   text-shadow: 2px 2px rgb(90, 36, 36), 4px 4px rgb(202, 186, 39), rgb(20, 9, 11) 1px 0 22px;
-  /* text-shadow: 3px 3px rgb(248, 226, 226); */
-
 }
 .home-button {
+  margin: 0 0 0 20px;
   padding: 10px 10px;
   background-color: rgb(243, 235, 235);
   border: 2px solid red;

@@ -15,7 +15,7 @@ const App = () => {
           <button id='pizza-form' className="pizza-button">Pizza?</button>
         </Link>
         </div>
-      <p>Get ready to have your tastbuds tantalized! Choose from any of the options below to get started.</p>
+      <h3>Get ready to have your tastbuds tantalized! Choose from any of the options below to get started.</h3>
       </div>
 
       <div>
