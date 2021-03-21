@@ -6,6 +6,7 @@ export default function Form(props) {
         submit, 
         change, 
         errors, 
+        disabled,
     } = props
 
     const onSubmit = evt => {
@@ -21,8 +22,8 @@ export default function Form(props) {
     }
 
     return (
-        <div>
-            <div className="form-card" onSubmit={onSubmit}>
+        <form onSubmit={onSubmit}>
+            <div className="form-card">
                 <h2>Welcome to the Pizza Form!</h2>
                 <p>Choose your options below to build your ultimate pizza.</p>
                 
@@ -46,7 +47,7 @@ export default function Form(props) {
 
                 <div className="form-card">
                     <section className="form-card-heading">Choose Your Size:</section>
-                    <form className="form-container inputs">
+                    <div className="form-container inputs">
                         <label>Size Options
                             <select
                                 onChange={onChange}
@@ -59,30 +60,12 @@ export default function Form(props) {
                                 <option value='large'>Large</option>
                             </select>
                         </label>
-                    </form>
+                    </div>
                 </div>
-
-                {/* <div className="form-card">
-                    <section className="form-card-heading">Choose Your Sauce:</section>
-                    <form className="form-container inputs">
-                        <label>Marinara
-                            <input type="radio"/>
-                        </label>
-                        <label>Margherita
-                            <input type="radio"/>
-                        </label>
-                        <label>White Sauce (Alfredo)
-                            <input type="radio"/>
-                        </label>
-                        <label>Plain (No Sauce)
-                            <input type="radio"/>
-                        </label>
-                    </form>
-                </div> */}
                 
                 <div className="form-card">
                     <section className="form-card-heading">Choose Your Toppings:</section>
-                    <form className="form-container checkboxes">
+                    <div className="form-container checkboxes">
                         <label>Pepperoni
                             <input type="checkbox" name="pepperoni" onChange={onChange} checked={values.pepperoni}/>
                         </label>
@@ -101,29 +84,29 @@ export default function Form(props) {
                         <label>Pineapple
                             <input type="checkbox" name="pineapple" onChange={onChange} checked={values.pineapple}/>
                         </label>
-                    </form>
+                    </div>
                 </div>
 
                 <div className="form-card">
                     <section className="form-card-heading">Choose Extra Options:</section>
-                    <form className="form-container">
+                    <div className="form-container">
                         <label className="switch">
                             <input type="checkbox"/>
                             <span className="slider"/>
                         </label>Gluten-Free
-                    </form>
-                    <form className="form-container">
+                    </div>
+                    <div className="form-container">
                         <label className="switch">
                             <input type="checkbox"/>
                             <span className="slider"/>
                         </label>Dairy-Free
-                    </form>
-                    <form className="form-container">
+                    </div>
+                    <div className="form-container">
                         <label className="switch">
                             <input type="checkbox"/>
                             <span className="slider"/>
                         </label>Keto Crust
-                    </form>
+                    </div>
                 </div>
 
                 <div className="form-card">
@@ -139,32 +122,10 @@ export default function Form(props) {
                 </div>
 
                 <div className="form-card">
-                    {/* <section className="form-card-heading">Add To Cart!</section>
-                    <form className="form-container inputs">
-                        <label>Select The Amount You Want To Add: 
-                            <select
-                                onChange={onChange}
-                                value={values.amount}
-                                name='amount'
-                            >
-                                <option>Choose From This List! </option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                        </label>
-                    </form> */}
-                    <button className="add-order-button" onSubmit={onSubmit}>Add to Cart</button>
+                    <button className="add-order-button" disabled={disabled}>Add to Cart</button>
                 </div>
 
             </div>
-        </div>
+        </form>
     );
 }

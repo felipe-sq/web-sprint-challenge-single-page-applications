@@ -31,12 +31,14 @@ const initialFormErrors = {
   instructions: '',
 }
 const initialOrderItems = []
+const initialDisabled = true
 
 const App = () => {
 
   const [orderItems, setOrderItems] = useState(initialOrderItems)
   const [formValues, setFormValues] = useState(initialFormValues)
   const [formErrors, setFormErrors] = useState(initialFormErrors)
+  const [disabled, setDisabled] = useState(initialDisabled)
 
   const history = useHistory()
 
@@ -45,11 +47,11 @@ const App = () => {
   }
 
   const postNewOrderItem = newOrderItem => {
-    axios.post('fakeapi.com', newOrderItem)
+    axios.post('https://reqres.in/api/users', newOrderItem)
     .then(({data}) => {
       setOrderItems([data, ...orderItems])
       setFormValues(initialFormValues)
-      console.log(orderItems)
+      console.log(data)
     })
     .catch(err => console.log(err))
   }
@@ -66,13 +68,16 @@ const App = () => {
     const newOrderItem = {
       name: formValues.name.trim(),
       size: formValues.size,
-      toppings: ['pepperoni', 'mushrooms', 'olives', 'sausage', 'canadian_bacon', 'pineapple'].filter(topping => formValues(topping)),
+      toppings: ['pepperoni', 'mushrooms', 'olives', 'sausage', 'canadian_bacon', 'pineapple'].filter(topping => formValues[topping]),
       instructions: formValues.instructions,
-      // amount: formValues.amount,
       }
       postNewOrderItem(newOrderItem)
     }
 
+  useEffect(() => {
+    formSchema.isValid(formValues)
+    .then(valid => setDisabled(!valid))
+  }, [formValues])
 
   return (
     <>
@@ -94,7 +99,12 @@ const App = () => {
         values={formValues}
         change={inputChange}
         submit={formSubmit}
+        disabled={disabled}
         errors={formErrors}  
+      />
+
+      <Success 
+        values={formValues}
       />
 
       <div>
@@ -102,12 +112,12 @@ const App = () => {
           {/* <Form/> */}
         </Route>
 
-        <Route exact path='/PizzaForm/'>
+        <Route exact path='/PizzaForm/' />
           {/* <Form form='pizza-form'/> */}
-        </Route>
-        <Route exact path='/Success/'>
+        {/* </Route> */}
+        {/* <Route exact path='/Success/'>
           <Success />
-        </Route>
+        </Route> */}
 
       </div>
     </>
